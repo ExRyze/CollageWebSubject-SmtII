@@ -1,0 +1,40 @@
+:root {
+  --def-pad: 1rem;
+  --def-mar: 0.5rem;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.topbar {
+  padding: 0px var(--def-pad);
+  display: flex;
+  background-color: black;
+}
+.topbar a {
+  color: white;
+  display: block;
+  padding: 15px;
+  transition: linear 0.25s;
+}
+.topbar a:hover {
+  color: black;
+  background-color: white;
+}
+main {
+  padding: var(--def-pad);
+}
+.title {
+  margin-bottom: var(--def-mar);
+}
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table tr {
+  text-align: center;
+}
