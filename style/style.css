@@ -1,0 +1,34 @@
+:root {
+  --h-topbar: 60px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.topbar {
+  height: var(--h-topbar);
+  padding: 0px 1rem;
+  display: flex;
+  color: white;
+  background-color: black;
+}
+.topbar a {
+  line-height: var(--h-topbar);
+  padding: 0px 1rem;
+  display: block;
+  transition: linear 0.25s;
+}
+.topbar a:hover {
+  color: black;
+  background-color: white;
+}
+.header {
+  width: 100vw;
+  height: calc(100vh-var(--h-topbar));
+  background-color: lightblue;
+}
