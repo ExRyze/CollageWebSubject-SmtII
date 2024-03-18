@@ -1,5 +1,14 @@
 :root {
   --h-topbar: 60px;
+
+  --x-light: #FBFEF9;
+  --x-grey: #6c757d;
+  --x-dark: #04080F;
+  --x-red: #D10000;
+  --x-yellow: #ffc107;
+  --x-green: #198754;
+  --x-clay: #31d2f2;
+  --x-blue: #0054D1;
 }
 a {
   color: inherit;
@@ -14,8 +23,8 @@ a {
   height: var(--h-topbar);
   padding: 0px 1rem;
   display: flex;
-  color: white;
-  background-color: black;
+  color: var(--x-light);
+  background-color: var(--x-dark);
 }
 .topbar a {
   line-height: var(--h-topbar);
@@ -24,11 +33,36 @@ a {
   transition: linear 0.25s;
 }
 .topbar a:hover {
-  color: black;
-  background-color: white;
+  color: var(--x-dark);
+  background-color: var(--x-light);
 }
-.header {
+header {
   width: 100vw;
-  height: calc(100vh-var(--h-topbar));
-  background-color: lightblue;
+  height: calc(100vh - var(--h-topbar));
+  padding: 1rem;
+  display: flex;
+  background-color: var(--x-light);
+}
+header > * {
+  height: 100%;
+  display: flex;
+}
+header .desc {
+  width: 60%;
+  flex-direction: column;
+  justify-content: center;
+}
+header .profile {
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+}
+header .profile .container {
+  width: 70%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+header .profile .container img {
+  width: 100%;
 }
