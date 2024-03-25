@@ -1,0 +1,34 @@
+.header {
+    width: 100vw;
+    padding: 5rem 10rem;
+    background-color: var(--x-lbase);
+    display: flex;
+}
+
+.header .desc {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25em;
+}
+
+.header .desc .title {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem 0;
+    background-color: var(--x-base);
+    color: var(--x-lbase);
+}
+
+.header .desc .title span:not(.header .desc .title span:last-child) {
+    padding-right: 0.5rem;
+	border-right: solid var(--x-lbase) 1px;
+    margin-right: 0.5rem;
+}
+
+.header .desc .highlight {
+    color: var(--x-base);
+    font-size: 3em;
+    font-weight: bold;
+}

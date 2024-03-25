@@ -12,6 +12,12 @@
 	font-size: 1.25em;
 	font-weight: bold;
 	display: block;
+	transition: linear 0.2s;
+}
+
+.nav .logo:hover {
+	color: var(--x-for);
+	text-shadow: 2px 2px var(--x-thr);
 }
 
 .nav .logo span {
@@ -24,7 +30,7 @@
 }
 
 .nav .menu li {
-	border-right: solid black 1px;
+	border-right: solid var(--x-lbase) 1px;
 }
 
 .nav .menu li:last-child{
