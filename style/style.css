@@ -3,6 +3,7 @@
 
   --x-light: #FBFEF9;
   --x-grey: #6c757d;
+  --x-light-dark: #2a2e32;
   --x-dark: #04080F;
   --x-red: #D10000;
   --x-yellow: #ffc107;
@@ -20,6 +21,8 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Topbar */
 .topbar {
   height: var(--h-topbar);
   padding: 0px 5rem;
@@ -29,7 +32,14 @@ a {
 }
 .topbar .logo h1,
 .topbar .menu a {
+  padding: 0px 1.5rem;
+  display: block;
   line-height: var(--h-topbar);
+  transition: linear 0.25s;
+}
+.topbar .logo:hover {
+  color: var(--x-clay);
+  text-shadow: 2px 2px var(--x-red);
 }
 .topbar .logo span {
   color: var(--x-clay);
@@ -40,11 +50,13 @@ a {
   justify-content: center;
   list-style: none;
 }
-.topbar .menu a {
-  padding: 0px 1.5rem;
-  display: block;
-  transition: linear 0.25s;
-}
 .topbar .menu a:hover {
   color: var(--x-clay);
+}
+
+/* Header */
+header {
+  height: calc(100vh - 60px);
+  padding: 5rem;
+  background-color: var(--x-light-dark);
 }
