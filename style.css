@@ -38,3 +38,6 @@ table, th, td{
 table tr {
   text-align: center;
 }
+ul, ol {
+  margin-left: 1rem;
+}
