@@ -1,0 +1,14 @@
+.nav {
+	padding: 1rem 10rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav .logo {
+	padding: 0.5rem;
+	line-height: 40px;
+	font-size: 1.25em;
+	font-weight: bold;
+	display: block;
+}
