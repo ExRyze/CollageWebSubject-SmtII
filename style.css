@@ -25,7 +25,7 @@ a {
   color: black;
   background-color: white;
 }
-main {
+.topbar + main {
   padding: var(--def-pad);
 }
 .title {
