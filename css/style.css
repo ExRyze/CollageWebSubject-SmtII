@@ -1,11 +1,276 @@
 :root {
   --x-base: #071E3D;
   --x-lbase: #E7F6F2;
-  --x-sec: #1F4287;
-  --x-thr: #278EA5;
-  --x-for: #21E6C1;
+  --x-grey: #deece9;
+  --x-sec: #004360;
+  --x-lsec: #43adda;
+  --x-thr: #313715;
+
+  --x-font-base: #004360;
+  --x-font-lbase: #f4fffc;
+
+  --x-def-py: 5rem;
+  --x-def-px: 10rem;
 }
 
 * {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+  color: var(--x-font-base);
+}
+
+/* Elements */
+a {
+  color: inherit;
+}
+
+p {font-size: 1.25em;}
+small {font-size: 1rem;}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+h1 {font-size: 3em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+h5 {font-size: 1em;}
+h6 {font-size: 0.85em;}
+
+/* Components */
+.card {
+  width: 100%;
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow:  10px 10px 20px gray;
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  background-color: var(--x-lsec);
+  font-weight: bold;
+}
+
+/* Navigation */
+.nav {
+	padding: 1rem var(--x-def-px);
+	background-color: var(--x-base);
+	color: var(--x-font-lbase);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.nav .logo {
+	padding: 0.5rem;
+	/* font-size: 1.25em; */
+	font-weight: bold;
+	display: block;
+	transition: linear 0.2s;
+}
+
+.nav .logo:hover {
+	text-shadow: 2px 2px var(--x-lsec);
+}
+
+.nav .logo span {
+	color: var(--x-lsec);
+}
+
+.nav .menu {
+	display: flex;
+
+}
+
+.nav .menu li {
+	border-right: solid var(--x-lbase) 1px;
+}
+
+.nav .menu li:last-child{
+	border-right: 0px;
+}
+
+.nav .menu a {
+	padding: 0.5rem 1rem;
+	transition: linear 0.2s;
+}
+
+.nav .menu a:hover,
+.nav .menu a.active {
+	color: var(--x-lsec);
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: var(--x-def-py) var(--x-def-px);
+  background-color: var(--x-lbase);
+  display: flex;
+}
+
+.header .desc {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header .desc .name {
+  margin-bottom: 0;
+}
+
+.header .desc .title {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  margin: 0.5rem 0;
+  background-color: var(--x-base);
+  color: var(--x-font-lbase);
+}
+
+.header .desc .title span:not(.header .desc .title span:last-child) {
+  padding-right: 0.5rem;
+  border-right: solid var(--x-lbase) 1px;
+  margin-right: 0.5rem;
+}
+
+.header .desc .highlight {
+  margin-bottom: 0;
+}
+
+.header .image {
+  width: 50%;
+  padding: 3rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.header .image div {
+  width: 70%;
+  border-radius: 1rem;
+  background-color: var(--x-base);
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header .image img {
+  width: 140%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* About Me */
+.about {
+  padding: var(--x-def-py) var(--x-def-px);
+  width: 100%;
+  background-color: var(--x-grey);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.about .title {
+  color: var(--x-sec);
+}
+
+.about .name {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.about .desc {
+  width: 50%;
+}
+
+/* Resume */
+.resume {
+  padding: var(--x-def-py) var(--x-def-px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resume .title {
+  width: 100%;
+}
+
+.education, .experience {
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.education .card,
+.experience .card {
+  margin-bottom: 2rem;
+  background-color: var(--x-lbase);
+}
+
+/* Education */
+.education {
+  padding-right: 3rem;
+}
+
+/* Experience */
+.experience {
+  padding-left: 3rem;
+}
+
+/* Video */
+.video {
+  padding: var(--x-def-py) var(--x-def-px);
+  background-color: var(--x-lbase);
+  text-align: center;
+}
+
+.video video {
+  width: 100%;
+}
+
+/* Contact */
+.contact {
+  padding: var(--x-def-py) var(--x-def-px);
+  background-color: var(--x-lbase);
+}
+
+.contact form {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact form .title {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact form label {
+  margin-bottom: 0.5rem;
+}
+
+.contact form input,
+.contact form textarea {
+  padding: 0.5rem;
+  border: solid var(--x-base) 1px;
+  margin-bottom: 1rem;
 }
