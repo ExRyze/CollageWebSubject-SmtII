@@ -254,11 +254,30 @@ main {
 .education .card,
 .experience .card {
   background-color: var(--x-lbase);
+  overflow: hidden;
 }
 
 .education .card .image,
 .experience .card .image {
   width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.education .card .image img,
+.experience .card .image img {
+  width: 100%;
+}
+
+.education .card .image img {
+  scale: 1.05;
+}
+
+.experience .card .image img {
+  scale: 1.5;
 }
 
 .education .card .desc,
@@ -266,10 +285,6 @@ main {
   width: 65%;
   padding: 2rem 2rem 2rem 1rem;
 }
-
-/* .education .card .desc .date,
-.experience .card .desc .date {
-} */
 
 .education .card .desc .title,
 .experience .card .desc .title {
@@ -325,4 +340,16 @@ main {
   padding: 0.5rem;
   border: solid var(--x-base) 1px;
   margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  padding: 1rem var(--x-def-px);
+  background-color: var(--x-base);
+}
+
+.footer .copyright {
+  color: var(--x-lbase);
+  font-size: 1em;
+  text-align: center;
 }
