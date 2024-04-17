@@ -1,13 +1,18 @@
 :root {
   --x-base: #071E3D;
-  --x-lbase: #E7F6F2;
-  --x-grey: #deece9;
-  --x-sec: #004360;
-  --x-lsec: #43adda;
-  --x-thr: #313715;
+  --x-lbase: #F0F4F9;
+  --x-sec: #28BBFF;
+  --x-thr: #DE1A1A;
+  --x-frt: #93827F;
+
+  --xs-base: #06182F;
+  --xs-lbase: #AAC1DD;
+  --xs-sec: #00A2ED;
+  --xs-thr: #B31515;
+  --xs-frt: #776865;
 
   --x-font-base: #004360;
-  --x-font-lbase: #f4fffc;
+  --x-font-lbase: #f0f4f9;
 
   --x-def-py: 5rem;
   --x-def-px: 10rem;
@@ -40,19 +45,34 @@ h5 {font-size: 1em;}
 h6 {font-size: 0.85em;}
 
 /* Components */
+.mx-auto {margin: 0 auto;}
+.mb-0 {margin-bottom: 0;}
+
+.bold {font-weight: bold;}
+
 .card {
   width: 100%;
   padding: 3rem;
   border-radius: 2rem;
+  margin-bottom: 2rem;
   box-shadow:  10px 10px 20px gray;
+}
+.card-hor {
+  padding: 0;
+  display: flex;
 }
 
 .btn {
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
-  margin-top: 2rem;
-  background-color: var(--x-lsec);
+  background-color: var(--x-base);
+  color: var(--x-font-lbase);
   font-weight: bold;
+  transition: 0.2s linear;
+}
+.btn:hover {
+  background-color: var(--xs-base);
+  color: var(--xs-lbase);
 }
 
 /* Navigation */
@@ -69,19 +89,19 @@ h6 {font-size: 0.85em;}
 }
 
 .nav .logo {
-	padding: 0.5rem;
-	/* font-size: 1.25em; */
+	padding: 0 0.5rem;
+	font-size: 1.5em;
 	font-weight: bold;
 	display: block;
 	transition: linear 0.2s;
 }
 
 .nav .logo:hover {
-	text-shadow: 2px 2px var(--x-lsec);
+	text-shadow: 2px 2px var(--x-sec);
 }
 
 .nav .logo span {
-	color: var(--x-lsec);
+	color: var(--x-sec);
 }
 
 .nav .menu {
@@ -104,7 +124,7 @@ h6 {font-size: 0.85em;}
 
 .nav .menu a:hover,
 .nav .menu a.active {
-	color: var(--x-lsec);
+	color: var(--x-sec);
 }
 
 /* Header */
@@ -178,27 +198,38 @@ main {
 
 /* About Me */
 .about {
-  padding: var(--x-def-py) var(--x-def-px);
   width: 100%;
-  background-color: var(--x-grey);
+  background-color: var(--x-base);
+  color: var(--x-font-lbase);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  text-align: justify;
 }
 
-.about .title {
-  color: var(--x-sec);
+.about .image {
+  width: 35%;
+  position: relative;
+  overflow: hidden;
 }
 
-.about .name {
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
+.about .image img {
+  width: 100%;
+  position: absolute;
+  top: -2rem;
 }
 
 .about .desc {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  padding: var(--x-def-py) var(--x-def-px) var(--x-def-py) 6rem;
+}
+
+.about .desc .name {
+  margin-bottom: 0.5rem;
+}
+
+.about .desc .name + p {
+  text-indent: 1em;
 }
 
 /* Resume */
@@ -210,19 +241,40 @@ main {
 
 .resume .title {
   width: 100%;
+  margin-bottom: 0;
 }
 
 .education, .experience {
   width: 50%;
-  padding: 2rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .education .card,
 .experience .card {
-  margin-bottom: 2rem;
   background-color: var(--x-lbase);
+}
+
+.education .card .image,
+.experience .card .image {
+  width: 35%;
+}
+
+.education .card .desc,
+.experience .card .desc {
+  width: 65%;
+  padding: 2rem 2rem 2rem 1rem;
+}
+
+/* .education .card .desc .date,
+.experience .card .desc .date {
+} */
+
+.education .card .desc .title,
+.experience .card .desc .title {
+  margin-bottom: 0.5rem;
+  color: var(--xs-base);
 }
 
 /* Education */
