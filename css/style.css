@@ -19,7 +19,7 @@
 }
 
 * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 body {
   color: var(--x-font-base);
@@ -74,6 +74,8 @@ h6 {font-size: 0.85em;}
   background-color: var(--xs-base);
   color: var(--xs-lbase);
 }
+.btn-none {background-color: transparent;}
+.btn-none:hover {background-color: transparent;}
 
 /* Navigation */
 .nav {
@@ -302,6 +304,36 @@ main {
   padding-left: 3rem;
 }
 
+/* Project */
+.project {
+  padding: var(--x-def-py) var(--x-def-px);
+  background-color: var(--x-base);
+  color: var(--x-font-lbase);
+  display: flex;
+}
+
+.project .desc {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project .desc .title {
+  width: 65%;
+  margin-bottom: 0;
+}
+
+.project .desc .btn {
+  width: fit-content;
+  margin-right: auto;
+}
+
+.project .image {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* Video */
 .video {
   padding: var(--x-def-py) var(--x-def-px);
@@ -346,10 +378,29 @@ main {
 .footer {
   padding: 1rem var(--x-def-px);
   background-color: var(--x-base);
+  display: flex;
+  justify-content: space-between;
 }
 
 .footer .copyright {
   color: var(--x-lbase);
   font-size: 1em;
-  text-align: center;
 }
+
+.footer .links {
+  display: flex;
+}
+
+.footer .links .links-item {
+  margin: 0 0.5rem;
+  color: var(--x-font-lbase);
+}
+
+.footer .links .links-item:hover {
+  color: var(--x-sec);
+}
+
+/* .footer .links .links-item:not(.footer .links .links-item:last-child):after {
+  content: "|";
+  margin: 0 0 0 0.5rem;
+} */
