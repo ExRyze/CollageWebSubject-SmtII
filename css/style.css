@@ -305,34 +305,12 @@ main {
 }
 
 /* Project */
-.project {
+/* .project {
   padding: var(--x-def-py) var(--x-def-px);
   background-color: var(--x-base);
   color: var(--x-font-lbase);
   display: flex;
-}
-
-.project .desc {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-}
-
-.project .desc .title {
-  width: 65%;
-  margin-bottom: 0;
-}
-
-.project .desc .btn {
-  width: fit-content;
-  margin-right: auto;
-}
-
-.project .image {
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-}
+} */
 
 /* Video */
 .video {
@@ -399,8 +377,3 @@ main {
 .footer .links .links-item:hover {
   color: var(--x-sec);
 }
-
-/* .footer .links .links-item:not(.footer .links .links-item:last-child):after {
-  content: "|";
-  margin: 0 0 0 0.5rem;
-} */
