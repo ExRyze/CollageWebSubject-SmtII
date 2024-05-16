@@ -1,0 +1,18 @@
+table{
+    margin: 10px;
+}
+table,th,td {
+    background-color: rgb(209, 225, 237);
+    border: 1px solid rgb(74, 74, 74);
+    border-collapse: collapse;
+
+}
+
+table th {
+    
+    padding: 10px 165px;
+}
+
+table td{
+    padding: 10px;
+}
