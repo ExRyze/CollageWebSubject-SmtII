@@ -13,9 +13,9 @@ class Login extends Controller {
         if (!empty($_POST)) {
             if($this->model("Pengguna")->validate()) {
                 if($this->model("Pengguna")->logSiswa()) {
-                    $_SESSION['spp'] = $this->model("Pengguna")->logSiswa();
+                    $_SESSION['user'] = $this->model("Pengguna")->logSiswa();
                 } else {
-                    $_SESSION['spp'] = $this->model("Pengguna")->logPetugas();
+                    $_SESSION['user'] = $this->model("Pengguna")->logPetugas();
                 }
                 Middleware::role();
                 return Middleware::noAuth();

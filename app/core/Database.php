@@ -3,9 +3,9 @@
 class Database {
 
     protected $host = HOST;
-    protected $name = NAME;
     protected $user = USER;
     protected $pass = PASS;
+    protected $name = NAME;
 
     protected $stmt;
     protected $dbh;

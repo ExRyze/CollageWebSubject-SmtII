@@ -2,7 +2,7 @@
 
 class App {
 
-    protected $controller = 'siswa';
+    protected $controller = 'dashboard';
     protected $method = 'index';
     protected $params = [];
 
