@@ -14,13 +14,13 @@ if( isset($_POST['username'])) {
   $pass = validate($_POST['password']);
 
   if (empty($uname) && empty($pass)) {
-    header("Location: ../index.php?error=Please complete the form!");
+    header("Location: ./../view/login.php?error=Please complete the form!");
     exit();
   } else if (empty($uname)) {
-    header("Location: ../index.php?error=Username is required");
+    header("Location: ./../view/login.php?error=Username is required");
     exit();
   } else if (empty($pass)) { 
-    header("Location: ../index.php?error=Password is required");
+    header("Location: ./../view/login.php?error=Password is required");
     exit();
   } else {
     $sql = "SELECT * FROM users WHERE username = '$uname' AND password = '$pass'";
@@ -28,21 +28,18 @@ if( isset($_POST['username'])) {
 
     if (mysqli_num_rows($result) === 1) {
       $row = mysqli_fetch_assoc($result);
-
-      $_SESSION['user_name'] = $row['user_name'];
-      $_SESSION['name'] = $row['name'];
-      $_SESSION['id'] = $row['id'];
-      $_SESSION['akses'] = $row['akses'];
-      // header("Location: dashboard.php");
+      $_SESSION['user'] = $row;
+      var_dump($row);
+      header("Location: ./../view/home.php");
       exit();
     } else {
-      header("Location: ../index.php?error=Inccorect Username or Password");
+      header("Location: ./../view/login.php?error=User not found!");
       exit();
     }
   }
 
 } else {
-  header("Location: index.php");
+  header("Location: ./../view/login.php?error=Restricted!");
   exit();
 }
 ?>
