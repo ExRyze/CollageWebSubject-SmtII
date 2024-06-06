@@ -1,5 +1,5 @@
 <?php
-include "db_conn.php";
+include "./../core/db_conn.php";
 
 if( isset($_POST['username'])) {
   function validate($data) {

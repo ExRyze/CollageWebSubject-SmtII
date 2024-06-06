@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db_conn.php";
+include "./../core/db_conn.php";
 
 if( isset($_POST['username'])) {
   function validate($data) {
@@ -30,7 +30,7 @@ if( isset($_POST['username'])) {
       $row = mysqli_fetch_assoc($result);
       $_SESSION['user'] = $row;
       var_dump($row);
-      header("Location: ./../view/home.php");
+      header("Location: ./../view/dashboard.php");
       exit();
     } else {
       header("Location: ./../view/login.php?error=User not found!");
