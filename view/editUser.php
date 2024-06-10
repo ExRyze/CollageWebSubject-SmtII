@@ -1,3 +1,9 @@
+<?php 
+session_start();
+include "./../core/middleware.php";
+include "./../query/userSingle.php";
+auth();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +24,14 @@
   <form action="./../config/cf_updateUser.php" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
 
+    <?php
+    if ($data['img']) {
+      echo "<img width='100' height='100' src='./../".$data['img']."' alt='".$data['username']."'>";
+    }?>
+    <br>
+
     <label for="username">Username</label><br>
-    <input type="text" name="username">
+    <input type="text" name="username" value="<?= $data['username'] ?>">
     <br><br>
 
     <label for="image">Image</label><br>

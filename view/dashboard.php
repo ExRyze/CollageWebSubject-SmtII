@@ -32,14 +32,14 @@ auth();
       while($row = $result->fetch_assoc()) {
         echo "<tr>
           <td>".$row['id']."</td>
-          <td><img width='100' height='100' src='./../".$row['img']."' alt='".$row['username']."'></td>
+          <td>".($row['img'] ? "<img width='100' height='100' src='./../".$row['img']."' alt='".$row['username']."'>" : "")."</td>
           
           <td>".$row['username']."</td>
           <td>".$row['createdAt']."</td>
           <td>".$row['updatedAt']."</td>
           <td>
             <a href='./editUser.php?id=".$row['id']."'>edit</a>
-            <a href='./hapusUser.php?id=".$row['id']."'>hapus</a>
+            <a href='./../config/cf_deleteUser.php?id=".$row['id']."'>hapus</a>
           </td>
         </tr>";
       }
