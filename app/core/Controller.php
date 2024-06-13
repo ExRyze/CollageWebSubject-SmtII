@@ -7,7 +7,6 @@ class Controller {
     }
 
     public function model($tabel) {
-        $tabel .= "_tabel";
         require_once("../app/models/".$tabel.".php");
         return new $tabel;
     }

@@ -1,18 +1,18 @@
 <?php
 
-// class Middleware {
+class Middleware {
 
-//     static function auth() {
-//         if(isset($_SESSION['spp']) === false) {
-//             Functions::redirect("login");
-//         }
-//     }
+    static function auth() {
+        if(isset($_SESSION['user']) === false) {
+            Functions::redirect("login");
+        }
+    }
 
-//     static function noAuth() {
-//         if(isset($_SESSION['spp']) === true) {
-//             Functions::redirect();
-//         }
-//     }
+    static function noAuth() {
+        if(isset($_SESSION['user']) === true) {
+            Functions::redirect();
+        }
+    }
 
 //     static function role($role = false) {
 //         Middleware::auth();
@@ -41,4 +41,4 @@
 //         }
 //     }
     
-// }
+}

@@ -1,82 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="pembayaran spp">
-    <meta name="author" content="ExRyze">
-
-    <title>Pembayaran SPP | <?= $data['page'] ?></title>
-
-    <!-- Custom fonts for this template-->
-    <link href="<?= VENDOR ?>/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="<?= CSS ?>/sb-admin-2.min.css" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="<?=IMG?>/logos/favicon.png" />
+  <link rel="stylesheet" href="<?=CSS?>/styles.min.css" />
 </head>
 
-<body class="bg-gradient-primary d-flex align-items-center" style="height: 100vh;">
-
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
-                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4 col-10" src="<?= IMG ?>/undraw_posting_photo.svg" alt="...">
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Selamat datang!</h1>
-                                    </div>
-                                    <?php Flasher::getPesan(); ?>
-                                    <form class="user" method="post" action="<?= BURL ?>/login">
-                                        <div class="form-group">
-                                            <input type="text" name="username" class="form-control form-control-user" id="username"
-                                                placeholder="Username / NIS" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user"
-                                                id="password" placeholder="Password" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                  <img src="<?=IMG?>/logos/dark-logo.svg" width="180" alt="">
+                </a>
+                <p class="text-center">Your Social Campaigns</p>
+                <?php Flasher::getFlash(); ?>
+                <form method="post" action="<?=BURL?>/login">
+                  <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="form-check">
+                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label text-dark" for="flexCheckChecked">
+                        Remeber this Device
+                      </label>
                     </div>
-                </div>
-
+                    <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
+                  </div>
+                  <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</button>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
+                    <a class="text-primary fw-bold ms-2" href="<?=BURL?>/register">Create an account</a>
+                  </div>
+                </form>
+              </div>
             </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= VENDOR ?>/jquery/jquery.min.js"></script>
-    <script src="<?= VENDOR ?>/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="<?= VENDOR ?>/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?= JS ?>/sb-admin-2.min.js"></script>
-
+  </div>
+  <script src="<?=LIB?>/jquery/dist/jquery.min.js"></script>
+  <script src="<?=LIB?>/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

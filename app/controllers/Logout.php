@@ -7,7 +7,8 @@ class Logout extends Controller {
     }
 
     public function index() {
-        session_destroy();
+        session_unset();
+        Flasher::setFlash("Session Anda telah berakhir!", "warning");
         return Functions::redirect("login");
     }
 }

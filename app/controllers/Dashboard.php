@@ -3,7 +3,7 @@
 class Dashboard extends Controller {
 
   public function __construct() {
-    // Middleware::auth();
+    Middleware::auth();
   }
 
   public function index() {

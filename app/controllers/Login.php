@@ -11,17 +11,15 @@ class Login extends Controller {
 
         // config
         if (!empty($_POST)) {
-            if($this->model("Pengguna")->validate()) {
-                if($this->model("Pengguna")->logSiswa()) {
-                    $_SESSION['user'] = $this->model("Pengguna")->logSiswa();
-                } else {
-                    $_SESSION['user'] = $this->model("Pengguna")->logPetugas();
+            if($this->model("Users")->validate()) {
+                if ($user = $this->model("Users")->login()) {
+                    $_SESSION['user'] = $user;
+                    Flasher::setFlash("Selamat datang kembali {$_SESSION['user']['username']}!", "success");
+                    return Functions::redirect("dashboard");
                 }
-                Middleware::role();
-                return Middleware::noAuth();
+                Flasher::setFlash("Data tidak cocok!", "warning");
             } else {
-                Flasher::setPesan("Data tidak ditemukan!", "warning");
-                return Functions::redirect("login");
+                Flasher::setFlash("User tidak ditemukan!", "warning");
             }
         }
 

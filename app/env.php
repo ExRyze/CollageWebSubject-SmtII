@@ -5,19 +5,19 @@ define("SALT", "QA1sx@Ed3fV$357");
 define("HOST", "localhost"); // host
 define("USER", "root"); // username
 define("PASS", ""); // password
-define("NAME", "web"); // database name
+define("NAME", "web_project"); // database name
 
 define("BURL", "/Collage/Semester II"); // base url
 define("COMP", "../app/views/components"); // views/components
 
-// define("HEAD", COMP."/head.php"); // head
-// define("TBAR", COMP."/tbar.php"); // topbar
-// define("SBAR", COMP."/sbar.php"); // sidebar
-// define("COPY", COMP."/copy.php"); // copyright
-// define("FOOT", COMP."/foot.php"); // script
+define("DHEAD", COMP."/dashboard/head.php"); // head
+define("DBAR", COMP."/dashboard/bar.php"); // topbar
+define("DNAV", COMP."/dashboard/nav.php"); // navbar
+// define("DCOPY", COMP."/dashboard/copy.php"); // copyright
+define("DFOOT", COMP."/dashboard/foot.php"); // script
 
 define("CSS", BURL."/css"); // public/css
 define("IMG", BURL."/img"); // public/img
 define("JS", BURL."/js"); // public/js
-define("VENDOR", BURL."/vendor"); // public/vendor
+define("LIB", BURL."/libs"); // public/vendor
 // define("VIDEO", BURL."/video"); // public/video
