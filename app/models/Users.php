@@ -10,7 +10,7 @@ class Users {
     }
 
     public function login() {
-        $this->db->query("SELECT `nama`, `username`, `role`, `createdAt`, `updatedAt` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `password` = :password");
+        $this->db->query("SELECT `nama`, `username`, `role`, `createdAt`, `updatedAt`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `password` = :password");
         $this->db->bind("username", $_POST['username']);
         $this->db->bind("password", (md5($_POST['password']).SALT));
         return $this->db->result();
@@ -54,6 +54,13 @@ class Users {
         $this->db->bind("username", $_POST['username']);
         $this->db->bind("password", (md5($_POST['password']).SALT));
         $this->db->bind("createdAt", date('Y-m-d H:i:s'));
+        return $this->db->rowCount();
+    }
+
+    public function updateImage($image) {
+        $this->db->query("UPDATE `users` SET `image`=:image WHERE `username`=:username");
+        $this->db->bind("image", $image);
+        $this->db->bind("username", $_SESSION['user']['username']);
         return $this->db->rowCount();
     }
 }

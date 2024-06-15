@@ -16,7 +16,7 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="<?=IMG?>/users/user-1.jpg" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
+              <img src="<?=IMG?>/users/<?= ($_SESSION['user']['image']) ? $_SESSION['user']['image'] : 'user-1.jpg' ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
               <h5 class="my-3 mb-1"><?=$data['username']?></h5>
               <p class="text-muted mb-4"><?=$data['role']?></p>
               <?= ($data['edit'] === "enabled") ? 
@@ -85,14 +85,14 @@
 <!-- Modal -->
 <div class="modal fade" id="photo" tabindex="-1" aria-labelledby="photoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <form class="modal-content" action="<?=BURL?>/profile/updateImage" method="post" enctype="multipart/form-data">
+    <form class="modal-content" action="<?=BURL?>/profile/updateImage/<?=$data['username']?>" method="post" enctype="multipart/form-data">
       <div class="modal-header">
         <h5 class="modal-title" id="photoLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="d-flex justify-content-center mb-3" id="preview">
-          <img src="<?=IMG?>/users/user-1.jpg" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
+          <img src="<?=IMG?>/users/<?= ($_SESSION['user']['image']) ? $_SESSION['user']['image'] : 'user-1.jpg' ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
         </div>
         <div class="">
           <input class="form-control" type="file" id="imageUpload" name="imageUpload">

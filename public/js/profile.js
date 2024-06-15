@@ -2,7 +2,7 @@ $('#imageUpload').on('change', function() {
 
   var file = this.files[0];
   var imagefile = file.type;
-  var imageTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
+  var imageTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
   if (imageTypes.indexOf(imagefile) == -1) {
       //display error
       return false;
