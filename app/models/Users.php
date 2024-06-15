@@ -10,31 +10,41 @@ class Users {
     }
 
     public function login() {
-        $this->db->query("SELECT `nama`, `username`, `roleId`, `createdAt`, `updatedAt` FROM {$this->tabel} WHERE `username` = :username AND `password` = :password");
+        $this->db->query("SELECT `nama`, `username`, `role`, `createdAt`, `updatedAt` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `password` = :password");
         $this->db->bind("username", $_POST['username']);
         $this->db->bind("password", (md5($_POST['password']).SALT));
         return $this->db->result();
     }
 
-    public function get() {
-        $this->db->query("SELECT * FROM {$this->tabel} WHERE `username` = :username");
-        $this->db->bind("username", $_POST['username']);
+    // public function get() {
+    //     $this->db->query("SELECT * FROM {$this->tabel} WHERE `username` = :username");
+    //     $this->db->bind("username", $_POST['username']);
+    //     return $this->db->result();
+    // }
+
+    public function profile($username) {
+        $this->db->query("SELECT * FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
+        $this->db->bind("username", $username);
         return $this->db->result();
     }
 
-    public function getAll() {
-        $this->db->query("SELECT * FROM {$this->tabel}");
-        return $this->db->resultAll();
-    }
+    // public function getAll() {
+    //     $this->db->query("SELECT * FROM {$this->tabel}");
+    //     return $this->db->resultAll();
+    // }
 
-    public function count() {
-        $this->db->query("SELECT * FROM {$this->tabel}");
-        return $this->db->rowCount();
-    }
+    // public function count() {
+    //     $this->db->query("SELECT * FROM {$this->tabel}");
+    //     return $this->db->rowCount();
+    // }
 
-    public function validate() {
-        $this->db->query("SELECT * FROM {$this->tabel} WHERE `username` = :username");
-        $this->db->bind("username", $_POST['username']);
+    public function validate($username = null) {
+        $this->db->query("SELECT `id` FROM {$this->tabel} WHERE `username` = :username");
+        if ($username) {
+            $this->db->bind("username", $username);
+        } else {
+            $this->db->bind("username", $_POST['username']);
+        }
         return $this->db->rowCount();
     }
 
@@ -46,26 +56,4 @@ class Users {
         $this->db->bind("createdAt", date('Y-m-d H:i:s'));
         return $this->db->rowCount();
     }
-
-    // public function insert() {
-    //     $this->db->query("CALL insKelas(:nama_kelas, :kompetensi_keahlian)");
-    //     $this->db->bind("nama_kelas", $_POST['nama_kelas']);
-    //     $this->db->bind("kompetensi_keahlian", $_POST['kompetensi_keahlian']);
-    //     return $this->db->rowCount();
-    // }
-
-    // public function update() {
-    //     $this->db->query("CALL updKelas(:id_kelas, :nama_kelas, :kompetensi_keahlian)");
-    //     $this->db->bind("id_kelas", $_POST['id_kelas']);
-    //     $this->db->bind("nama_kelas", $_POST['nama_kelas']);
-    //     $this->db->bind("kompetensi_keahlian", $_POST['kompetensi_keahlian']);
-    //     return $this->db->rowCount();
-    // }
-
-    // public function delete() {
-    //     $this->db->query("CALL delKelas(:id_kelas)");
-    //     $this->db->bind("id_kelas", $_POST['id_kelas']);
-    //     return $this->db->rowCount();
-    // }
-
 }

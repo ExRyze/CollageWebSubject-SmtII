@@ -6,7 +6,7 @@ class Controller {
         require_once("../app/views/".$view.".php");
     }
 
-    public function model($tabel) {
+    public static function model($tabel) {
         require_once("../app/models/".$tabel.".php");
         return new $tabel;
     }

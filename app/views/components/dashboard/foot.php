@@ -5,6 +5,7 @@
   <script src="<?=LIB?>/apexcharts/dist/apexcharts.min.js"></script>
   <script src="<?=LIB?>/simplebar/dist/simplebar.js"></script>
   <script src="<?=JS?>/dashboard.js"></script>
+  <script src="<?=JS?>/profile.js"></script>
 </body>
 
 </html>

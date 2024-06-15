@@ -14,31 +14,32 @@ class Middleware {
         }
     }
 
-//     static function role($role = false) {
-//         Middleware::auth();
-//         if($_SESSION['spp']['role'] != $role) {
-//             switch ($role) {
-//                 case 'admin':
-//                     if($_SESSION['spp']['role'] != "admin") {
-//                         if($_SESSION['spp']['role'] === "petugas") {
-//                             return Functions::redirect("petugas");
-//                         } else {
-//                             return Functions::redirect("siswa");
-//                         }
-//                     }
-//                     break;
-//                 case 'petugas':
-//                     if($_SESSION['spp']['role'] === "siswa") {
-//                         return Functions::redirect("siswa");
-//                     }
-//                     break;
-//                 case 'siswa':
-//                     if($_SESSION['spp']['role'] != $role) {
-//                         return Functions::redirect("petugas");
-//                     }
-//                     break;
-//             }
-//         }
-//     }
+    // static function role($role) {
+    //     Middleware::auth();
+    //     $roleId = Controller::model("Roles")->getId($role);
+    //     if($_SESSION['users']['id'] != $roleId) {
+    //         switch ($role) {
+    //             case 'admin':
+    //                 if($_SESSION['spp']['role'] != "admin") {
+    //                     if($_SESSION['spp']['role'] === "petugas") {
+    //                         return Functions::redirect("petugas");
+    //                     } else {
+    //                         return Functions::redirect("siswa");
+    //                     }
+    //                 }
+    //                 break;
+    //             case 'petugas':
+    //                 if($_SESSION['spp']['role'] === "siswa") {
+    //                     return Functions::redirect("siswa");
+    //                 }
+    //                 break;
+    //             case 'siswa':
+    //                 if($_SESSION['spp']['role'] != $role) {
+    //                     return Functions::redirect("petugas");
+    //                 }
+    //                 break;
+    //         }
+    //     }
+    // }
     
 }
