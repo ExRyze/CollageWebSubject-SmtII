@@ -7,7 +7,6 @@ class Profile extends Controller {
   }
 
   public function index($username = null) {
-    $test = explode('/', "img/test");
     if ($username) {
       if ($this->model("Users")->validate($username)) {
         $data = $this->model("Users")->profile($username);
@@ -48,15 +47,26 @@ class Profile extends Controller {
             Functions::redirect("profile/".$username);
           }
           $nama=uniqid().'.'.$format;
-          move_uploaded_file($path, "../public/img/users/".$nama);
+          move_uploaded_file($path, OSSIMG."/users/".$nama);
           if ($_SESSION['user']['image']) {
-            unlink("../public/img/users/".$_SESSION['user']['image']);
+            unlink(OSSIMG."/users/".$_SESSION['user']['image']);
           }
           $this->model("Users")->updateImage($nama);
           $_SESSION['user']['image'] = $nama;
           Flasher::setFlash("Foto berhasil diperbaharui", "success");
           Functions::redirect("profile/".$username);
         }
+      }
+    }
+    Functions::redirect("dashboard");
+  }
+
+  public function updateData($username = null) {
+    if ($username) {
+      if (isset($_POST)) {
+        $this->model("Users")->update();
+        Flasher::setFlash("Data berhasil diperbaharui", "success");
+        Functions::redirect("profile/".$username);
       }
     }
     Functions::redirect("dashboard");

@@ -10,7 +10,7 @@ class Users {
     }
 
     public function login() {
-        $this->db->query("SELECT `nama`, `username`, `role`, `createdAt`, `updatedAt`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `password` = :password");
+        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `password` = :password");
         $this->db->bind("username", $_POST['username']);
         $this->db->bind("password", (md5($_POST['password']).SALT));
         return $this->db->result();
@@ -23,7 +23,7 @@ class Users {
     // }
 
     public function profile($username) {
-        $this->db->query("SELECT * FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
+        $this->db->query("SELECT {$this->tabel}.*, `roles`.`role` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
         $this->db->bind("username", $username);
         return $this->db->result();
     }
@@ -57,10 +57,22 @@ class Users {
         return $this->db->rowCount();
     }
 
+    public function update() {
+        $this->db->query("UPDATE `users` SET `nama`=:nama, `email`=:email, `telepon`=:telepon, `alamat`=:alamat, `updatedAt`=:updatedAt WHERE `id`=:id");
+        $this->db->bind("nama", $_POST['nama']);
+        $this->db->bind("email", $_POST['email']);
+        $this->db->bind("telepon", $_POST['telepon']);
+        $this->db->bind("alamat", $_POST['alamat']);
+        $this->db->bind("updatedAt", date('Y-m-d H:i:s'));
+        $this->db->bind("id", $_POST['id']);
+        return $this->db->rowCount();
+    }
+
     public function updateImage($image) {
-        $this->db->query("UPDATE `users` SET `image`=:image WHERE `username`=:username");
+        $this->db->query("UPDATE `users` SET `image`=:image, `updatedAt`=:updatedAt WHERE `id`=:id");
         $this->db->bind("image", $image);
-        $this->db->bind("username", $_SESSION['user']['username']);
+        $this->db->bind("updatedAt", date('Y-m-d H:i:s'));
+        $this->db->bind("id", $_POST['id']);
         return $this->db->rowCount();
     }
 }
