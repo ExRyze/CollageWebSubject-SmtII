@@ -6,6 +6,9 @@
   <script src="<?=LIB?>/simplebar/dist/simplebar.js"></script>
   <script src="<?=JS?>/dashboard.js"></script>
   <script src="<?=JS?>/profile.js"></script>
+  <!-- <script src="<?=JS?>/dataTable.js"></script>
+  <script src="<?=JS?>/dataTable-bootstrap.js"></script>
+  <script>new DataTable('#example');</script> -->
 </body>
 
 </html>

@@ -14,6 +14,7 @@ define("COMP", "../app/views/components"); // components url
 define("OSS", "../public"); // store url
 
 // Components
+define("TEST", "../app/views/temp/"); // head
 // C - Dashboard
 define("DHEAD", COMP."/dashboard/head.php"); // head
 define("DBAR", COMP."/dashboard/bar.php"); // topbar
