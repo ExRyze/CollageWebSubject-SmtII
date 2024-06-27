@@ -10,9 +10,20 @@ class Users {
     }
 
     public function login() {
-        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `password` = :password");
+        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `password`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
         $this->db->bind("username", $_POST['username']);
-        $this->db->bind("password", (md5($_POST['password']).SALT));
+        $row =  $this->db->result();
+        if (password_verify($_POST['password'], str_replace(SALT, "", $row['password']))) {
+            unset($row['password']);
+            return $row;
+        } else {
+            return [];
+        }
+    }
+
+    public function logToken($token) {
+        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `password`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `token` = :token");
+        $this->db->bind("token", $token);
         return $this->db->result();
     }
 
@@ -54,12 +65,19 @@ class Users {
         return $this->db->rowCount();
     }
 
-    public function insert() {
+    public function regis() {
         $this->db->query("INSERT INTO {$this->tabel}(`id`, `nama`, `username`, `password`, `roleId`, `createdAt`, `updatedAt`) VALUES (null,:nama,:username,:password,1,:createdAt,:createdAt)");
         $this->db->bind("nama", $_POST['nama']);
         $this->db->bind("username", $_POST['username']);
-        $this->db->bind("password", (md5($_POST['password']).SALT));
+        $this->db->bind("password", (password_hash($_POST['password'], PASSWORD_DEFAULT).SALT));
         $this->db->bind("createdAt", date('Y-m-d H:i:s'));
+        return $this->db->rowCount();
+    }
+
+    public function token($id, $token) {
+        $this->db->query("UPDATE {$this->tabel} SET `token`=:token WHERE `id`=:id");
+        $this->db->bind("id", $id);
+        $this->db->bind("token", $token);
         return $this->db->rowCount();
     }
 

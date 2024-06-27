@@ -24,6 +24,14 @@
 						<span class="hide-menu">Dashboard</span>
 					</a>
 				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="<?=BURL?>/dashboard/statistik" aria-expanded="false">
+						<span>
+							<i class="ti ti-chart-bar"></i>
+						</span>
+						<span class="hide-menu">Statistic</span>
+					</a>
+				</li>
 				<li class="nav-small-cap">
 					<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
 					<span class="hide-menu">Data</span>
@@ -33,7 +41,39 @@
 						<span>
 							<i class="ti ti-user"></i>
 						</span>
-						<span class="hide-menu">User</span>
+						<span class="hide-menu">Admin</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="<?=BURL?>/dashboard/member" aria-expanded="false">
+						<span>
+							<i class="ti ti-id-badge-2"></i>
+						</span>
+						<span class="hide-menu">Member</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="<?=BURL?>/dashboard/kategori" aria-expanded="false">
+						<span>
+							<i class="ti ti-packages"></i>
+						</span>
+						<span class="hide-menu">Kategori barang</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="<?=BURL?>/dashboard/item" aria-expanded="false">
+						<span>
+							<i class="ti ti-package"></i>
+						</span>
+						<span class="hide-menu">Item barang</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="<?=BURL?>/dashboard/penjualan" aria-expanded="false">
+						<span>
+							<i class="ti ti-cash"></i>
+						</span>
+						<span class="hide-menu">Penjualan</span>
 					</a>
 				</li>
 		</nav>

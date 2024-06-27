@@ -10,6 +10,10 @@ class Dashboard extends Controller {
       return $this->view("dashboard/index");
   }
 
+  public function statistik() {
+      return $this->view("dashboard/statistik");
+  }
+
   // View Table
   public function user() {
     if (isset($_GET['search'])) {
@@ -18,5 +22,14 @@ class Dashboard extends Controller {
       $data = $this->model("Users")->getAll();
     }
     return $this->view("dashboard/user", $data);
+  }
+
+  public function group() {
+    if (isset($_GET['search'])) {
+      $data = $this->model("Groups")->search($_GET['search']);
+    } else {
+      $data = $this->model("Groups")->getAll();
+    }
+    return $this->view("dashboard/group", $data);
   }
 }

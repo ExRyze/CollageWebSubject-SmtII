@@ -14,7 +14,7 @@ class Register extends Controller {
             if($this->model("Users")->validate()) {
                 Flasher::setFlash("Username sudah digunakan!", "warning");
             } else {
-                $this->model("Users")->insert();
+                $this->model("Users")->regis();
                 $_SESSION['user'] = $this->model("Users")->login();
                 Flasher::setFlash("Selamat datang {$_SESSION['user']['username']}!", "success");
                 return Functions::redirect("dashboard");
