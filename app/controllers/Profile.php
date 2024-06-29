@@ -26,7 +26,6 @@ class Profile extends Controller {
   public function updateImage($username = null) {
     if ($username) {
       if (isset($_FILES)) {
-        var_dump($_FILES);
         $tipe=$_FILES['imageUpload']['type'];
         $size=$_FILES['imageUpload']['size'];
         $error=$_FILES['imageUpload']['error'];

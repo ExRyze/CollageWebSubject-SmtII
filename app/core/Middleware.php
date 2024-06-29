@@ -17,11 +17,12 @@ class Middleware {
     }
 
     static function noAuth() {
-        if ($user = Middleware::token()) {
-            $_SESSION['user'] = $user;
-            Flasher::setFlash("Selamat datang kembali {$_SESSION['user']['username']}!", "success");
-        }
-        if(isset($_SESSION['user']) === true) {
+        if (isset($_SESSION['user']) === false) {
+            if ($user = Middleware::token()) {
+                $_SESSION['user'] = $user;
+                Flasher::setFlash("Selamat datang kembali {$_SESSION['user']['username']}!", "success");
+            }
+        } else {
             Functions::redirect();
         }
     }

@@ -15,21 +15,29 @@ class Dashboard extends Controller {
   }
 
   // View Table
-  public function user() {
+  public function admin() {
     if (isset($_GET['search'])) {
-      $data = $this->model("Users")->search($_GET['search']);
+      $data = $this->model("Users")->searchAdmin($_GET['search']);
     } else {
-      $data = $this->model("Users")->getAll();
+      $data = $this->model("Users")->getAdmins();
+    }
+    return $this->view("dashboard/user", $data);
+  }
+  public function member() {
+    if (isset($_GET['search'])) {
+      $data = $this->model("Users")->searchMember($_GET['search']);
+    } else {
+      $data = $this->model("Users")->getMembers();
     }
     return $this->view("dashboard/user", $data);
   }
 
-  public function group() {
+  public function kategori() {
     if (isset($_GET['search'])) {
-      $data = $this->model("Groups")->search($_GET['search']);
+      $data = $this->model("Categories")->search($_GET['search']);
     } else {
-      $data = $this->model("Groups")->getAll();
+      $data = $this->model("Categories")->getAll();
     }
-    return $this->view("dashboard/group", $data);
+    return $this->view("dashboard/kategori", $data);
   }
 }

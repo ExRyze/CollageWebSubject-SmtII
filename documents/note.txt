@@ -3,3 +3,6 @@ regex and validation
 nav item active
 Middleware role
 Add in tabel user
+Del user in tabel user, del image
+add rules when want to updaate personal data user id and token
+edit categori, danger when press enter, the data are deleted

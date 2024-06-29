@@ -37,7 +37,7 @@
 					<span class="hide-menu">Data</span>
 				</li>
 				<li class="sidebar-item">
-					<a class="sidebar-link" href="<?=BURL?>/dashboard/user" aria-expanded="false">
+					<a class="sidebar-link" href="<?=BURL?>/dashboard/admin" aria-expanded="false">
 						<span>
 							<i class="ti ti-user"></i>
 						</span>

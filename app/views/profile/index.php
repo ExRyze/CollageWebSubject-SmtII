@@ -91,7 +91,6 @@
             <img src="<?=IMG?>/users/<?= ($_SESSION['user']['image']) ? $_SESSION['user']['image'] : 'user-1.jpg' ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
           </div>
           <div class="">
-            <input type="hidden" class="form-control" id="id" value="<?=$data['id']?>">
             <input class="form-control" type="file" id="imageUpload" name="imageUpload">
           </div>
         </div>
@@ -111,7 +110,6 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <input type="hidden" class="form-control" id="id" name="id" value="<?=$data['id']?>">
           <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
             <input type="test" class="form-control" id="nama" name="nama" value="<?=$data['nama']?>">
