@@ -6,6 +6,15 @@ class Kategori extends Controller {
     Middleware::auth();
   }
 
+  public function index($index) {
+      if (isset($_GET['search'])) {
+        $data = $this->model("items")->search($_GET['search']);
+      } else {
+        $data = $this->model("items")->getItems($index);
+      }
+      return $this->view("dashboard/item", $data);
+  }
+
   public function add() {
     if (!empty($_POST)) {
       if($this->model("Categories")->validate()) {
@@ -13,7 +22,6 @@ class Kategori extends Controller {
       } else {
         $this->model("Categories")->insert();
         Flasher::setFlash("Data Kategori berhasil ditambahkan!", "success");
-        return Functions::redirect("dashboard/kategori");
       }
     }
     Functions::redirect("dashboard/kategori");
@@ -22,13 +30,15 @@ class Kategori extends Controller {
   public function update() {
     if (isset($_POST)) {
       if ($_POST['submit'] == "update") {
-        $this->model("Categories")->update();
-        Flasher::setFlash("Data kategori berhasil diupdate!", "warning");
-        Functions::redirect("dashboard/kategori");
+        if (!$this->model("Categories")->validate()) {
+          $this->model("Categories")->update();
+          Flasher::setFlash("Data kategori berhasil diupdate!", "success");
+        } else {
+          Flasher::setFlash("Data kategori sudah dipakai!", "warning");
+        }
       } else if ($_POST['submit'] == "delete") {
         $this->model("Categories")->delete();
         Flasher::setFlash("Data kategori telah dihapus!", "danger");
-        Functions::redirect("dashboard/kategori");
       }
     }
     Functions::redirect("dashboard/kategori");

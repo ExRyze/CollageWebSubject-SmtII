@@ -40,4 +40,13 @@ class Dashboard extends Controller {
     }
     return $this->view("dashboard/kategori", $data);
   }
+
+  public function item() {
+    if (isset($_GET['search'])) {
+      $data = $this->model("Items")->search($_GET['search']);
+    } else {
+      $data = $this->model("Items")->getAll();
+    }
+    return $this->view("dashboard/item", $data);
+  }
 }

@@ -26,7 +26,7 @@ class User extends Controller {
         Functions::redirect("dashboard/user");
       } else {
         $this->model("Users")->delete($id);
-        Flasher::setFlash("Berhasil menghapus data user", "success");
+        Flasher::setFlash("Berhasil menghapus data user", "danger");
         Functions::redirect("dashboard/user");
       }
     }

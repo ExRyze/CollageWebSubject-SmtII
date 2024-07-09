@@ -15,9 +15,14 @@ class Categories {
         return $this->db->rowCount();
     }
 
+    public function search($search) {
+        $this->db->query("SELECT *, (SELECT COUNT(*) FROM items WHERE items.kategoriId = {$this->tabel}.id) AS total FROM {$this->tabel} WHERE `nama` LIKE :search");
+        $this->db->bind("search", '%'.$search.'%');
+        return $this->db->resultAll();
+    }
+
     public function getAll() {
-        $this->db->query("SELECT *, (SELECT COUNT(*) FROM types 
-        WHERE types.kategoriId = {$this->tabel}.id) AS total FROM {$this->tabel}");
+        $this->db->query("SELECT *, (SELECT COUNT(*) FROM items WHERE items.kategoriId = {$this->tabel}.id) AS total FROM {$this->tabel}");
         return $this->db->resultAll();
     }
 

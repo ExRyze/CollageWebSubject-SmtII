@@ -10,5 +10,9 @@ class Functions {
         header("Location: ".BURL."/".$url);
         exit();
     }
+
+    static function categories() {
+        return Controller::model("Categories")->getAll();
+    }
     
 }

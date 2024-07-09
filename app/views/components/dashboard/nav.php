@@ -60,13 +60,26 @@
 						<span class="hide-menu">Kategori barang</span>
 					</a>
 				</li>
-				<li class="sidebar-item">
-					<a class="sidebar-link" href="<?=BURL?>/dashboard/item" aria-expanded="false">
+				<li class="sidebar-item dropdown">
+					<a type="button" class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#colNav" aria-expanded="false" aria-controls="collapseExample">
 						<span>
 							<i class="ti ti-package"></i>
 						</span>
 						<span class="hide-menu">Item barang</span>
+						<span class="ms-auto">
+							<i class="ti ti-chevron-down"></i>
+						</span>
 					</a>
+				</li>
+				<li class="sidebar-item dropdown collapse ps-4" id="colNav">
+					<?php foreach (Functions::categories() as $ktg) { ?>
+						<a class="sidebar-link bg-white text-dark" href="<?=BURL?>/kategori/<?=$ktg['id']?>" aria-expanded="false">
+							<span>
+								<i class="ti ti-point"></i>
+							</span>
+							<span class="hide-menu"><?=$ktg['nama']?></span>
+						</a>
+					<?php } ?>
 				</li>
 				<li class="sidebar-item">
 					<a class="sidebar-link" href="<?=BURL?>/dashboard/penjualan" aria-expanded="false">

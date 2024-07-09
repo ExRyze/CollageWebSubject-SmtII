@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <form class="card-body d-flex" method="get" action="<?=BURL?>/dashboard/user">
+            <form class="card-body d-flex" method="get" action="<?=BURL?>/dashboard/kategori">
               <input type="text" class="form-control grow-1" id="search" name="search" value="<?= (isset($_GET['search'])) ? $_GET['search'] : '' ?>">
               <button type="submit" class="btn btn-primary ms-4">Search</button>
               <a class="btn btn-success ms-4" data-bs-toggle='modal' data-bs-target='#add'>Add</a>
@@ -26,17 +26,17 @@
         </div>
         <div class="col-12">
           <div class="card">
-            <div class="card-body">
-              <?php foreach ($data as $i => $kategori) { ?>
-                <div class="col-3">
+            <div class="card-body d-flex">
+              <?php foreach ($data as $i => $ktg) { ?>
+                <div class="px-2 col-3">
                   <div class="card">
                     <div class="card-body d-flex align-items-center">
                       <i class="h1 ti ti-packages m-0 me-3"></i>
                       <div class="d-flex flex-column flex-grow-1">
-                        <h5 class="pb-2 border-2 border-bottom border-dark border-solid"><?=$kategori['nama']?> (<?=$kategori['total']?>)</h5>
+                        <h5 class="pb-2 border-2 border-bottom border-dark border-solid"><?=$ktg['nama']?> (<?=$ktg['total']?>)</h5>
                         <div class="w-100 d-flex">
-                          <a type="button" href="" class="p-2 btn btn-outline-info">Details</a>
-                          <a type="button" class="p-2 ms-2 btn btn-outline-warning" data-bs-toggle='modal' data-bs-target='#edit<?=$kategori['id']?>'>Edit</a>
+                          <a type="button" href="<?=BURL?>/kategori/<?=$ktg['id']?>" class="p-2 btn btn-outline-info">Details</a>
+                          <a type="button" class="p-2 ms-2 btn btn-outline-warning" data-bs-toggle='modal' data-bs-target='#edit<?=$ktg['id']?>'>Edit</a>
                         </div>
                       </div>
                     </div>
@@ -74,8 +74,8 @@
   </div>
 </div>
 
-<?php foreach ($data as $i => $kategori) { ?>
-  <div class="modal fade" id="edit<?=$kategori['id']?>" tabindex="-1" aria-labelledby="dataLabel" aria-hidden="true">
+<?php foreach ($data as $i => $ktg) { ?>
+  <div class="modal fade" id="edit<?=$ktg['id']?>" tabindex="-1" aria-labelledby="dataLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <form class="modal-content" action="<?=BURL?>/kategori/update" method="post">
         <div class="modal-header">
@@ -84,9 +84,9 @@
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <input type="hidden" name="id" value="<?=$kategori['id']?>">
+            <input type="hidden" name="id" value="<?=$ktg['id']?>">
             <label for="namaKategori" class="form-label">Nama kategori produk</label>
-            <input type="test" class="form-control" id="namaKategori" name="namaKategori" value="<?=$kategori['nama']?>">
+            <input type="test" class="form-control" id="namaKategori" name="namaKategori" value="<?=$ktg['nama']?>">
           </div>
         </div>
         <div class="modal-footer">
