@@ -6,7 +6,10 @@ class Dashboard extends Controller {
     Middleware::auth();
   }
 
-  public function index() {
+  public function index($ctgId = "") {
+    if ($ctgId and isset($_POST)) {
+      // var_dump($ctgId);
+    }
       return $this->view("dashboard/index");
   }
 

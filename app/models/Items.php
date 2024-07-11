@@ -10,7 +10,8 @@ class Items {
     }
 
     public function validate() {
-        $this->db->query("SELECT `id` FROM {$this->tabel} WHERE `namaItem` = :namaItem AND `satuan` = :satuan");
+        $this->db->query("SELECT `id` FROM {$this->tabel} WHERE `kategoriId` = :kategoriId AND `namaItem` = :namaItem AND `satuan` = :satuan");
+        $this->db->bind("kategoriId", (int)$_POST['kategoriId']);
         $this->db->bind("namaItem", $_POST['namaItem']);
         $this->db->bind("satuan", $_POST['satuan']);
         return $this->db->rowCount();

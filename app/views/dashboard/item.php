@@ -88,7 +88,7 @@
         </div>
         <div class="mb-3">
           <label for="hargaSatuan" class="form-label">Harga per-satuan</label>
-          <input type="number" step="1000" class="form-control" id="hargaSatuan" name="hargaSatuan">
+          <input type="number" min="0" class="form-control" id="hargaSatuan" name="hargaSatuan">
         </div>
       </div>
       <div class="modal-footer">
@@ -134,7 +134,7 @@
           </div>
           <div class="mb-3">
             <label for="hargaSatuan" class="form-label">Harga per-satuan</label>
-            <input type="number" step="1000" class="form-control" id="hargaSatuan" name="hargaSatuan" value="<?=$item['hargaSatuan']?>">
+            <input type="number" min="0" class="form-control" id="hargaSatuan" name="hargaSatuan" value="<?=$item['hargaSatuan']?>">
           </div>
         </div>
         <div class="modal-footer">
