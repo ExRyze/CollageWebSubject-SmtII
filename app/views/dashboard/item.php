@@ -27,25 +27,41 @@
         </div>
         <div class="col-12">
           <div class="card">
-            <div class="card-body d-flex">
-              <?php foreach ($data as $i => $item) { ?>
-                <div class="px-2 col-3">
-                  <div class="card">
-                    <div class="card-body d-flex align-items-center">
-                      <i class="h1 ti ti-package m-0 me-3"></i>
-                      <div class="d-flex flex-column flex-grow-1">
-                        <div class="pb-2 mb-2 border-2 border-bottom border-dark border-solid">
-                          <h5 class="m-0"><?=$item['namaItem']?></h5>
-                          <small><?=$item['namaKategori']?></small>
-                        </div>
-                        <div class="w-100 d-flex">
-                          <a type="button" class="p-2 btn btn-outline-info" data-bs-toggle='modal' data-bs-target='#edit<?=$item['id']?>'>Details</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <?php } ?>
+            <div class="card-body">
+              <table class="table table-striped table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Nama Item</th>
+                        <th>Satuan</th>
+                        <th>Harga per-satuan</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($data as $i => $item) { ?>
+                    <tr>
+                      <th><?= $item['namaKategori'] ?></th>
+                      <th><?= $item['namaItem'] ?></th>
+                      <th><?= $item['satuan'] ?></th>
+                      <th><?= $item['hargaSatuan'] ?></th>
+                      <th>
+                        <a class="btn btn-outline-warning" data-bs-toggle='modal' data-bs-target='#edit<?=$item['id']?>'>Update</a>
+                        <a class="btn btn-outline-danger" href="<?=BURL?>/item/remove/<?=$item['id']?>">Delete</a>
+                      </th>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Nama Item</th>
+                        <th>Satuan</th>
+                        <th>Harga per-satuan</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+              </table>
             </div>
           </div>
         </div>
@@ -64,6 +80,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <input type="hidden" name="ctgId" value="<?=$_POST['ctgId']?>">
         <div class="mb-3">
           <label for="kategoriId" class="form-label">Kategori produk</label>
           <select id="kategoriId" name="kategoriId" class="form-select">
@@ -108,6 +125,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+        <input type="hidden" name="ctgId" value="<?=$_POST['ctgId']?>">
         <input type="hidden" name="id" value="<?=$item['id']?>">
           <div class="mb-3">
             <label for="kategoriId" class="form-label">Kategori produk</label>
@@ -138,9 +156,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" name="submit" value="delete" class="btn btn-outline-danger me-auto">Delete</button>
           <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancle</button>
-          <button type="submit" name="submit" value="update" class="btn btn-warning">Update</button>
+          <button type="submit" class="btn btn-warning">Update</button>
         </div>
       </form>
     </div>

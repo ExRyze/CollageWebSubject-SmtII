@@ -53,9 +53,9 @@ class Items {
         return $this->db->rowCount();
     }
 
-    public function delete() {
+    public function delete($id) {
         $this->db->query("DELETE FROM {$this->tabel} WHERE id=:id");
-        $this->db->bind("id", $_POST['id']);
+        $this->db->bind("id", $id);
         return $this->db->rowCount();
     }
 }

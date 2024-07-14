@@ -13,7 +13,6 @@ class User extends Controller {
       } else {
         $this->model("Users")->insert();
         Flasher::setFlash("Data User telah ditambahkan!", "success");
-        return Functions::redirect("dashboard/user");
       }
     }
     Functions::redirect("dashboard/user");
@@ -23,11 +22,9 @@ class User extends Controller {
     if ($id) {
       if ($id == $_SESSION['user']['id']) {
         Flasher::setFlash("Tidak bisa menghapus data sendiri!", "warning");
-        Functions::redirect("dashboard/user");
       } else {
         $this->model("Users")->delete($id);
         Flasher::setFlash("Berhasil menghapus data user", "danger");
-        Functions::redirect("dashboard/user");
       }
     }
     Functions::redirect("dashboard/user");

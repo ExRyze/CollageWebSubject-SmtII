@@ -1,4 +1,6 @@
-In modal edit, use row reverse in button submit and delete
+In page tabel items all, you can use button in the category field
+In page tabel category, at modal edit, use row reverse in button submit and delete?
+In page tabel item, method search
 in page table member, add button is not needed
 in page table admin, form add just include name, username, def password 123, and role admin
 In page table member or admin, if deleted, del image

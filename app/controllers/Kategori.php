@@ -12,6 +12,7 @@ class Kategori extends Controller {
       } else {
         $data = $this->model("items")->getItems($index);
       }
+      $_POST['ctgId']=$index;
       return $this->view("dashboard/item", $data);
   }
 

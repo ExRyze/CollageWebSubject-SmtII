@@ -16,7 +16,7 @@ class Functions {
     }
 
     static function inpSales($typeId, $qty) {
-        $_SESSION['sales'] = []
+        $_SESSION['sales'] = [];
     }
 
     static function delSales() {
