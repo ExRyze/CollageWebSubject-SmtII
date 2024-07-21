@@ -4,6 +4,8 @@ In page tabel item, method search
 in page table member, add button is not needed
 in page table admin, form add just include name, username, def password 123, and role admin
 In page table member or admin, if deleted, del image
+In add member doesnt need password
+User cant login
 add rules when want to update personal data user id and token
 Middleware role
 regex and validation (Important in regis and login) (Plus required data in form)

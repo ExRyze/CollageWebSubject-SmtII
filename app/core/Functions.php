@@ -15,20 +15,29 @@ class Functions {
         return Controller::model("Categories")->getAll();
     }
 
-    static function inpSales($typeId, $qty) {
-        $_SESSION['sales'] = [];
+    static function inpSales(array $item, int $qty) {
+        if (!isset($_SESSION['sales'])) {
+            $_SESSION['sales'] = [];
+        }
+        array_push($_SESSION['sales'], ['item' => $item, 'qty' => $qty, 'sum' => $item['hargaSatuan']*$qty]);
     }
 
-    static function delSales() {
-
+    static function sumSales() {
+        $sum = 0.00;
+        if (isset($_SESSION['sales'])) {
+            foreach ($_SESSION['sales'] as $sale) {
+                $sum += $sale['sum'];
+            }
+        }
+        return $sum;
     }
 
-    static function prtSales() {
-
+    static function delSales(int $i) {
+        unset($_SESSION['sales'][$i]);
     }
 
     static function unsSales() {
-
+        unset($_SESSION['sales']);
     }
     
 }

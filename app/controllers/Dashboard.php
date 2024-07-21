@@ -7,10 +7,36 @@ class Dashboard extends Controller {
   }
 
   public function index($ctgId = "") {
-    if ($ctgId and isset($_POST)) {
-      // var_dump($ctgId);
+    if ($ctgId) {
+      var_dump($ctgId);
+      if (isset($_GET['search'])) {
+        $data = $this->model("items")->search($_GET['search']);
+      } else {
+        $data = $this->model("items")->getItems($ctgId);
+      }
+      $_POST['ctgId']=$ctgId;
+      return $this->view("dashboard/indexItem", $data);
     }
-      return $this->view("dashboard/index");
+    return $this->view("dashboard/index");
+  }
+
+  public function set() {
+    if (isset($_POST['input'])) {
+      $item = ['id' => $_POST['id'],
+        'namaKategori' => $_POST['namaKategori'],
+        'namaItem' => $_POST['namaItem'],
+        'satuan' => $_POST['satuan'],
+        'hargaSatuan' => $_POST['hargaSatuan']];
+      Functions::inpSales($item, $_POST['qty']);
+    }
+    return Functions::redirect("dashboard");
+  }
+
+  public function unset($i = "") {
+    if (isset($i)) {
+      Functions::delSales($i);
+    }
+    return Functions::redirect("dashboard");
   }
 
   public function statistik() {
