@@ -3,7 +3,7 @@
     <div class="card overflow-hidden">
       <div class="card-body">
         <h3 class="pb-3 mb-3 border-2 border-bottom border-dark border-solid">Detail penjualan</h3>
-        <form action="<?=BURL?>/checkout" method="post">
+        <form action="<?=BURL?>/penjualan/insert" method="post">
           <input type="hidden" name="adminId" value="<?=$_SESSION['user']['id']?>">
           <div class="pb-3 mb-3 border-2 border-bottom border-dark border-solid">
             <?php if(isset($_SESSION['sales'])) {foreach ($_SESSION['sales'] as $i => $sales) { ?>

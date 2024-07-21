@@ -21,6 +21,7 @@ class Middleware {
             if ($user = Middleware::token()) {
                 $_SESSION['user'] = $user;
                 Flasher::setFlash("Selamat datang kembali {$_SESSION['user']['username']}!", "success");
+                Functions::redirect();
             }
         } else {
             Functions::redirect();

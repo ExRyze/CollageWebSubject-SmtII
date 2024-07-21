@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <form class="card-body d-flex" method="get" action="<?=BURL?>/dashboard/user">
+            <form class="card-body d-flex" method="get" action="<?=BURL?>/dashboard/<?=$data['role']?>">
               <input type="text" class="form-control grow-1" id="search" name="search" value="<?= (isset($_GET['search'])) ? $_GET['search'] : '' ?>">
               <button type="submit" class="btn btn-primary ms-4">Search</button>
               <a class="btn btn-success ms-4" data-bs-toggle='modal' data-bs-target='#add'>Add</a>
@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($data as $i => $user) { ?>
+                  <?php foreach ($data['data'] as $i => $user) { ?>
                     <tr>
                       <th><?= $i+1 ?></th>
                       <th><?= $user['username'] ?></th>
@@ -79,7 +79,7 @@
 <!-- Modals -->
 <div class="modal fade" id="add" tabindex="-1" aria-labelledby="dataLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <form class="modal-content" action="<?=BURL?>/user/add" method="post">
+    <form class="modal-content" action="<?=BURL?>/user/add/<?=$data['role']?>" method="post">
       <div class="modal-header">
         <h5 class="modal-title" id="photoLabel">Data personal</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -96,18 +96,6 @@
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email">
-        </div>
-        <div class="mb-3">
-          <label for="telepon" class="form-label">Telepon</label>
-          <input type="test" class="form-control" id="telepon" name="telepon">
-        </div>
-        <div class="mb-3">
-          <label for="alamat" class="form-label">Alamat</label>
-          <textarea name="alamat" id="alamat" class="form-control" rows="5"></textarea>
         </div>
       </div>
       <div class="modal-footer">

@@ -2,8 +2,8 @@
 	<!-- Sidebar scroll-->
 	<div>
 		<div class="brand-logo d-flex align-items-center justify-content-between">
-			<a href="./index.html" class="text-nowrap logo-img">
-				<img src="<?=IMG?>/logos/dark-logo.svg" width="180" alt="" />
+			<a href="<?=BURL?>" class="text-nowrap logo-img">
+				<h2 class="fw-bold">Maha FC</h2>
 			</a>
 			<div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
 				<i class="ti ti-x fs-8"></i>
@@ -82,7 +82,7 @@
 					<?php } ?>
 				</li>
 				<li class="sidebar-item">
-					<a class="sidebar-link" href="<?=BURL?>/dashboard/penjualan" aria-expanded="false">
+					<a class="sidebar-link" href="<?=BURL?>/penjualan" aria-expanded="false">
 						<span>
 							<i class="ti ti-cash"></i>
 						</span>

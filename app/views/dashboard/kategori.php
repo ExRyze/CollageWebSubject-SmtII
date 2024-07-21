@@ -89,10 +89,10 @@
             <input type="test" class="form-control" id="namaKategori" name="namaKategori" value="<?=$ktg['nama']?>">
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="submit" name="submit" value="delete" class="btn btn-outline-danger me-auto">Delete</button>
-          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancle</button>
+        <div class="modal-footer d-flex flex-row-reverse">
           <button type="submit" name="submit" value="update" class="btn btn-warning">Update</button>
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancle</button>
+          <button type="submit" name="submit" value="delete" class="btn btn-outline-danger me-auto">Delete</button>
         </div>
       </form>
     </div>

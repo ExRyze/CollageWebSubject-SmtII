@@ -10,15 +10,15 @@ class Users {
     }
 
     public function login() {
-        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `password`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
+        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `password`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `roles`.`role` = 'Admin'");
         $this->db->bind("username", $_POST['username']);
         $row =  $this->db->result();
-        if (password_verify($_POST['password'], str_replace(SALT, "", $row['password']))) {
-            unset($row['password']);
-            return $row;
-        } else {
-            return [];
+        if ($row) {
+            if (password_verify($_POST['password'], str_replace(SALT, "", $row['password']))) {
+                unset($row['password']);
+            }
         }
+        return $row;
     }
 
     public function logToken($token) {
@@ -64,6 +64,13 @@ class Users {
         return $this->db->resultAll();
     }
 
+    public function getMemberById($id) {
+        $this->db->query("SELECT {$this->tabel}.*, {$this->tabel}.`id` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `role` = :role AND {$this->tabel}.`id` = :id");
+        $this->db->bind("role", "Member");
+        $this->db->bind("id", $id);
+        return $this->db->result();
+    }
+
     public function validate($username = null) {
         $this->db->query("SELECT `id` FROM {$this->tabel} WHERE `username` = :username");
         if ($username) {
@@ -71,6 +78,15 @@ class Users {
         } else {
             $this->db->bind("username", $_POST['username']);
         }
+        return $this->db->rowCount();
+    }
+
+    public function insert() {
+        $this->db->query("INSERT INTO {$this->tabel}(`id`, `nama`, `username`, `password`, `roleId`, `createdAt`, `updatedAt`) VALUES (null,:nama,:username,:password,1,:createdAt,:createdAt)");
+        $this->db->bind("nama", $_POST['nama']);
+        $this->db->bind("username", $_POST['username']);
+        $this->db->bind("password", (password_hash($_POST['password'], PASSWORD_DEFAULT).SALT));
+        $this->db->bind("createdAt", date('Y-m-d H:i:s'));
         return $this->db->rowCount();
     }
 

@@ -17,11 +17,11 @@ class Items {
         return $this->db->rowCount();
     }
 
-    // public function search($search) {
-    //     $this->db->query("SELECT *, (SELECT COUNT(*) FROM types WHERE types.kategoriId = {$this->tabel}.id) AS total FROM {$this->tabel} WHERE `nama` LIKE :search");
-    //     $this->db->bind("search", '%'.$search.'%');
-    //     return $this->db->resultAll();
-    // }
+    public function search($search) {
+        $this->db->query("SELECT {$this->tabel}.*, `categories`.`nama` AS `namaKategori` FROM {$this->tabel} INNER JOIN `categories` ON {$this->tabel}.kategoriId = `categories`.`id` WHERE (`categories`.`nama` LIKE :search || `namaItem` LIKE :search || `satuan` LIKE :search || `satuan` LIKE :search || `hargaSatuan` LIKE :search)");
+        $this->db->bind("search", '%'.$search.'%');
+        return $this->db->resultAll();
+    }
 
     public function getAll() {
         $this->db->query("SELECT {$this->tabel}.*, `categories`.`nama` AS `namaKategori` FROM {$this->tabel} INNER JOIN `categories` ON {$this->tabel}.kategoriId = `categories`.`id`");

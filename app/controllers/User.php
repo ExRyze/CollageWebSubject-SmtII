@@ -6,16 +6,21 @@ class User extends Controller {
     Middleware::auth();
   }
 
-  public function add() {
+  public function add($role) {
     if (!empty($_POST)) {
       if($this->model("Users")->validate()) {
         Flasher::setFlash("Username sudah digunakan!", "warning");
       } else {
-        $this->model("Users")->insert();
-        Flasher::setFlash("Data User telah ditambahkan!", "success");
+        if ($role === "admin") {
+          $this->model("Users")->insert();
+          Flasher::setFlash("Data Admin telah ditambahkan!", "success");
+        } else {
+          $this->model("Users")->regis();
+          Flasher::setFlash("Data member telah ditambahkan!", "success");
+        }
       }
     }
-    Functions::redirect("dashboard/user");
+    Functions::redirect("dashboard/".$role);
   }
 
   public function remove($id = null) {
@@ -27,6 +32,6 @@ class User extends Controller {
         Flasher::setFlash("Berhasil menghapus data user", "danger");
       }
     }
-    Functions::redirect("dashboard/user");
+    Functions::back();
   }
 }

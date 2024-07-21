@@ -8,7 +8,6 @@ class Dashboard extends Controller {
 
   public function index($ctgId = "") {
     if ($ctgId) {
-      var_dump($ctgId);
       if (isset($_GET['search'])) {
         $data = $this->model("items")->search($_GET['search']);
       } else {
@@ -45,18 +44,20 @@ class Dashboard extends Controller {
 
   // View Table
   public function admin() {
+    $data['role'] = "admin";
     if (isset($_GET['search'])) {
-      $data = $this->model("Users")->searchAdmin($_GET['search']);
+      $data['data'] = $this->model("Users")->searchAdmin($_GET['search']);
     } else {
-      $data = $this->model("Users")->getAdmins();
+      $data['data'] = $this->model("Users")->getAdmins();
     }
     return $this->view("dashboard/user", $data);
   }
   public function member() {
+    $data['role'] = "member";
     if (isset($_GET['search'])) {
-      $data = $this->model("Users")->searchMember($_GET['search']);
+      $data['data'] = $this->model("Users")->searchMember($_GET['search']);
     } else {
-      $data = $this->model("Users")->getMembers();
+      $data['data'] = $this->model("Users")->getMembers();
     }
     return $this->view("dashboard/user", $data);
   }
