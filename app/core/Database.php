@@ -30,6 +30,7 @@ class Database {
     }
 
     public function bind($name, $value, $type = null) {
+        $value = $this->validate($value);
         if(is_null($type)) {
             switch (true) {
                 case is_int($value):
@@ -48,6 +49,13 @@ class Database {
             }
         }
         $this->stmt->bindValue($name, $value, $type);
+    }
+
+    public function validate($value) {
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = htmlspecialchars($value);
+        return $value;
     }
 
     public function execute() {

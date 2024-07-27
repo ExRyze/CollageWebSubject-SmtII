@@ -6,9 +6,6 @@ class Register extends Controller {
     }
 
     public function index() {
-        // data
-        $data['page'] = "Register";
-
         // config
         if (!empty($_POST)) {
             if($this->model("Users")->validate()) {

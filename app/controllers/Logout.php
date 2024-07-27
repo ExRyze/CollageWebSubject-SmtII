@@ -3,7 +3,7 @@
 class Logout extends Controller {
 
     public function __construct() {
-        Middleware::auth();
+        Middleware::auth(false);
     }
 
     public function index() {

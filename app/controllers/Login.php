@@ -6,9 +6,6 @@ class Login extends Controller {
     }
 
     public function index() {
-        // data
-        $data['page'] = "Login";
-
         // config
         if (!empty($_POST)) {
             if($this->model("Users")->validate()) {
@@ -29,7 +26,7 @@ class Login extends Controller {
         }
 
         // View
-        return $this->view("auth/login", $data);
+        return $this->view("auth/login");
     }
 
 }

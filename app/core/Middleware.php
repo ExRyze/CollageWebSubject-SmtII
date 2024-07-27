@@ -10,9 +10,11 @@ class Middleware {
         }
     }
 
-    static function auth() {
+    static function auth(bool $role = true) {
         if(isset($_SESSION['user']) === false) {
             Functions::redirect("login");
+        } else {
+            Middleware::role($role);
         }
     }
 
@@ -28,32 +30,10 @@ class Middleware {
         }
     }
 
-    // static function role($role) {
-    //     Middleware::auth();
-    //     $roleId = Controller::model("Roles")->getId($role);
-    //     if($_SESSION['users']['id'] != $roleId) {
-    //         switch ($role) {
-    //             case 'admin':
-    //                 if($_SESSION['spp']['role'] != "admin") {
-    //                     if($_SESSION['spp']['role'] === "petugas") {
-    //                         return Functions::redirect("petugas");
-    //                     } else {
-    //                         return Functions::redirect("siswa");
-    //                     }
-    //                 }
-    //                 break;
-    //             case 'petugas':
-    //                 if($_SESSION['spp']['role'] === "siswa") {
-    //                     return Functions::redirect("siswa");
-    //                 }
-    //                 break;
-    //             case 'siswa':
-    //                 if($_SESSION['spp']['role'] != $role) {
-    //                     return Functions::redirect("petugas");
-    //                 }
-    //                 break;
-    //         }
-    //     }
-    // }
+    static function role(bool $role) {
+        if($_SESSION['user']['role'] != "Admin" && $role == true) {
+            Functions::redirect();
+        }
+    }
     
 }

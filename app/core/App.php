@@ -2,9 +2,9 @@
 
 class App {
 
-    protected $controller = 'dashboard';
-    protected $method = 'index';
-    protected $params = [];
+    protected $controller = DEF_CTRL;
+    protected $method = DEF_MTHD;
+    protected $params = DEF_PRMS;
 
     public function __construct() {
         $url = $this->parseURL();

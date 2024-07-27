@@ -49,7 +49,7 @@
                       <th><?= $user['telepon'] ?></th>
                       <th><?= $user['createdAt'] ?></th>
                       <th>
-                        <a class="btn btn-outline-info" href="<?=BURL?>/profile/<?=$user['username']?>">Info</a>
+                        <a class="btn btn-outline-info" href="<?=BURL?>/profile/<?=$user['id']?>">Info</a>
                         <a class="btn btn-outline-danger" href="<?=BURL?>/user/remove/<?=$user['id']?>">Remove</a>
                       </th>
                     </tr>

@@ -10,7 +10,7 @@ class Users {
     }
 
     public function login() {
-        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `password`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username AND `roles`.`role` = 'Admin'");
+        $this->db->query("SELECT {$this->tabel}.`id`, `nama`, `username`, `password`, `role`, `image` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
         $this->db->bind("username", $_POST['username']);
         $row =  $this->db->result();
         if ($row) {
@@ -41,9 +41,9 @@ class Users {
         return $this->db->resultAll();
     }
 
-    public function profile($username) {
-        $this->db->query("SELECT {$this->tabel}.*, `roles`.`role` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE `username` = :username");
-        $this->db->bind("username", $username);
+    public function profile($id) {
+        $this->db->query("SELECT {$this->tabel}.*, `roles`.`role` FROM {$this->tabel} INNER JOIN `roles` ON {$this->tabel}.roleId = `roles`.`id` WHERE {$this->tabel}.`id` = :id");
+        $this->db->bind("id", $id);
         return $this->db->result();
     }
 
