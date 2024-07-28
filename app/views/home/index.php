@@ -9,8 +9,9 @@
     </div>
 </div>
 <div id="about" class="container my-5 p-5">
-    <h2 class="text-center">Tentang Kami</h2>
-    <p class="text-center">Maha Copy~Print~Scan menyediakan layanan print dan fotocopy terpercaya yang berbasis di Bali, Indonesia. Dengan pengalaman lebih dari satu dekade, kami berkomitmen untuk memberikan hasil berkualitas tinggi yang melebihi harapan. Tim kami yang terampil akan membantu anda dengan berbagai layanan, termasuk penjilidan dan desain kustom. Kami mengutamakan kualitas dengan waktu penyelesaian yang cepat dan layanan pelanggan yang personal, kami berdedikasi untuk menyelesaikan pesanan anda dengan perhatian dan penghargaan yang penuh. Pilih Maha Copy~Print~Scan untuk menghidupkan ide-ide Anda dengan presisi dan profesionalisme yang luar biasa.</p>
+    <h2 class="text-center">About Us</h2>
+    <p class="text-center">Maha FC provides trusted printing and photocopying services based in Bali, Indonesia. With over a decade of experience, we are committed to delivering high-quality results that exceed expectations. Our skilled team will assist you with a variety of services, including binding and custom design. We prioritize quality with fast turnaround times and personal customer service, we are dedicated to completing your orders with complete attention and respect. Choose Maha FC to bring your ideas to life with extraordinary precision and professionalism.
+</p>
 </div>
 <div style="background-color: #091222;">
     <div class="container p-5" id="services">
