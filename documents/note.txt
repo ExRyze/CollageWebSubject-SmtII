@@ -1,3 +1,8 @@
+// Installation
+Copy the relative path of this parent folder to the htdocs or www.
+Then change the base url (BURL)
+
+// Features that want to add
 Get data from database use order.
 In page tabel items all, you can use button in the category field
 In page tabel category, at modal edit, use row reverse in button submit and delete?
